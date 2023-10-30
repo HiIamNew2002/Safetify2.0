@@ -1,5 +1,6 @@
 package com.example.safetify_test.ui.gallery
 
+import SubmissionConfirmation
 import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
@@ -95,10 +96,21 @@ class GalleryFragment : Fragment() {
                 .addOnFailureListener { e ->
                     Log.w(TAG, "Error adding document", e)
                 }
+
+            // Show submission confirmation
+            val dialog = SubmissionConfirmation()
+            dialog.show(parentFragmentManager, "SubmissionConfirmationDialog")
+
+            //clear all text after submission to the firestore
+            firstNameEditText.text?.clear()
+            lastNameEditText.text?.clear()
+            contactEditText.text?.clear()
+            icEditText.text?.clear()
+            locationEditText.text?.clear()
+            descriptionEditText.text?.clear()
+
         }
-
-
-
+        //end of onClickListener
 
         return root
     }
