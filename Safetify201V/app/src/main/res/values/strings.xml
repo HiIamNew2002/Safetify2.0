@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Safetify 2.0 (1V)</string>
+    <string name="title_home">Home</string>
+    <string name="title_routes">Routes</string>
+    <string name="title_alarm">Alarm</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_guides">Guides</string>
+    <string name="title_call">Call</string>
+</resources>
