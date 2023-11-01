@@ -1,4 +1,4 @@
-package com.example.safetify_test.ui.gallery
+package com.example.safetify_test.ui.SubmitReport
 
 import SubmissionConfirmation
 import android.content.ContentValues.TAG
@@ -10,14 +10,14 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.safetify_test.databinding.FragmentGalleryBinding
+import com.example.safetify_test.databinding.FragmentSubmitReportBinding
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import java.sql.Timestamp
 
-class GalleryFragment : Fragment() {
+class SubmitReportFragment : Fragment() {
 
-    private var _binding: FragmentGalleryBinding? = null
+    private var _binding: FragmentSubmitReportBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -30,14 +30,14 @@ class GalleryFragment : Fragment() {
     ): View {
 
         // default code for setting up viewmodel, binding, and content of text view
-        val galleryViewModel =
-            ViewModelProvider(this).get(GalleryViewModel::class.java)
+        val submitReportViewModel =
+            ViewModelProvider(this).get(SubmitReportViewModel::class.java)
 
-        _binding = FragmentGalleryBinding.inflate(inflater, container, false)
+        _binding = FragmentSubmitReportBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView = binding.textGallery
-        galleryViewModel.text.observe(viewLifecycleOwner) {
+        submitReportViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
 

@@ -1,13 +1,15 @@
-package com.example.safetify_test.ui.gallery
+package com.example.safetify_test.ui.RetrieveReport
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class GalleryViewModel : ViewModel() {
+class RetrieveReportViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "Create New Report Below:"
+        value = "Submitted Reports:"
+
     }
     val text: LiveData<String> = _text
+
 }

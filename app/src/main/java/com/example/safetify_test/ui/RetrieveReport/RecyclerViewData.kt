@@ -1,4 +1,4 @@
-package com.example.safetify_test.ui.home
+package com.example.safetify_test.ui.RetrieveReport
 
 data class RecyclerViewData(
     val text1: String,

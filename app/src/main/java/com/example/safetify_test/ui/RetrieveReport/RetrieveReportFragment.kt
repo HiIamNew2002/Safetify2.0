@@ -1,30 +1,25 @@
-package com.example.safetify_test.ui.home
+package com.example.safetify_test.ui.RetrieveReport
 
 import android.content.ContentValues
-import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.safetify_test.databinding.FragmentHomeBinding
-import com.google.firebase.Timestamp
-import com.google.firebase.firestore.DocumentSnapshot
+import com.example.safetify_test.databinding.FragmentRetrieveReportBinding
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import com.google.firebase.storage.ktx.storage
 import java.text.SimpleDateFormat
 
-class HomeFragment : Fragment() {
+class RetrieveReportFragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
+    private var _binding: FragmentRetrieveReportBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -36,14 +31,14 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         // default code for setting up viewmodel, binding, and text for the textView
-        val homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
+        val retrieveReportViewModel =
+            ViewModelProvider(this).get(RetrieveReportViewModel::class.java)
 
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentRetrieveReportBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner) {
+        retrieveReportViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
 

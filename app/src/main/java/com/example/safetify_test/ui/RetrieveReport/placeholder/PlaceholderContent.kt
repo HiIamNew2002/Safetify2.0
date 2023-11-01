@@ -1,4 +1,4 @@
-package com.example.safetify_test.ui.home.placeholder
+package com.example.safetify_test.ui.RetrieveReport.placeholder
 
 import java.util.ArrayList
 import java.util.HashMap
