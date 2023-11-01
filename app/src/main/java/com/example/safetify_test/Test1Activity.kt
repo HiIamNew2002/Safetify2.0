@@ -8,13 +8,10 @@ package com.example.safetify_test
 * */
 
 
-import android.content.ContentValues
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
-import android.widget.TextView
-import androidx.activity.compose.setContent
-import com.google.android.material.snackbar.Snackbar
+
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -23,15 +20,8 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.ui.Modifier
 import com.example.safetify_test.databinding.ActivityTest1Binding
-import com.example.safetify_test.ui.theme.Safetify_TestTheme
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
-import org.w3c.dom.Text
+
 
 class Test1Activity : AppCompatActivity() {
 
@@ -50,11 +40,11 @@ class Test1Activity : AppCompatActivity() {
         setSupportActionBar(binding.appBarTest1.toolbar)
 
         binding.appBarTest1.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }
         val drawerLayout: DrawerLayout = binding.drawerLayout
-        val navView: NavigationView = binding.navView
+        val navView: NavigationView = binding.navView2
         val navController = findNavController(R.id.nav_host_fragment_content_test1)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -65,7 +55,6 @@ class Test1Activity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-
 
     }
 
