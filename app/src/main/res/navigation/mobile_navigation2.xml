@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation2"
+    app:startDestination="@id/nav_retrieve_report">
+
+    <fragment
+        android:id="@+id/nav_retrieve_report"
+        android:name="com.example.safetify_test.ui.RetrieveReport.RetrieveReportFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_retrieve_report" />
+
+    <fragment
+        android:id="@+id/nav_submit_report"
+        android:name="com.example.safetify_test.ui.SubmitReport.SubmitReportFragment"
+        android:label="@string/menu_gallery"
+        tools:layout="@layout/fragment_submit_report" />
+
+    <fragment
+        android:id="@+id/nav_panic_button"
+        android:name="com.example.safetify_test.ui.PanicButton.PanicButtonFragment"
+        android:label="@string/menu_slideshow"
+        tools:layout="@layout/fragment_panic_button" />
+</navigation>
