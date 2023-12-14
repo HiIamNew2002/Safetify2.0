@@ -1,0 +1,36 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Safetify203V" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+         <item name="colorPrimary">@color/main_purple</item>
+        <item name="colorPrimaryVariant">@color/white</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="drawerArrowStyle">@style/DrawerIconStyle</item>
+    </style>
+
+    <style name="Theme.Safetify203V" parent="Base.Theme.Safetify203V" />
+
+    <style name="ThemeOverlay.AppCompat.navTheme">
+         <item name="colorPrimary">@color/main_purple</item>
+    </style>
+
+    <style name="DrawerIconStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <item name="color">@color/second_purple</item>
+        <item name="barLength">30dp</item>
+        <item name="gapBetweenBars">5dp</item>
+        <item name="drawableSize">30dp</item>
+
+
+    </style>
+
+    <style name="Main.Button" parent="ThemeOverlay.AppCompat">
+        <item name="android:shape">oval</item>
+        <item name="android:strokeColor">#942519</item>
+        <item name="android:solidColor">#B83629</item>
+        <item name="android:width">250dp</item>
+    </style>
+
+</resources>

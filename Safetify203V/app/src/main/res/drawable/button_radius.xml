@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+    <shape android:shape="rectangle" >
+        <!-- you can use any color you want I used here gray color-->
+        <solid android:color="@color/main_purple"/>
+        <corners android:radius="25dp"/>
+    </shape>
+    </item>
+</selector>

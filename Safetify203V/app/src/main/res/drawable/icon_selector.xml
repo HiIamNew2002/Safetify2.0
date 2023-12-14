@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:state_checked="true"
+        android:color="@color/main_orange"
+        android:textSize="18sp"
+        android:fontFamily="@font/main_font"
+        android:itemBackground="@android:color/transparent"/>
+
+    <item
+        android:state_checked="false"
+        android:color="@color/white"
+        android:textSize="15sp"
+        android:fontFamily="@font/main_font"/>
+
+</selector>

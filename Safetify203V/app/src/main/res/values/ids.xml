@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="bottomAppBar" type="id" />
+    <item name="toolbar" type="id" />
+    <item name="bottom_home" type="id" />
+</resources>
