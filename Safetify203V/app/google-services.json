@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "112142908094",
+    "project_id": "capstone-58aee",
+    "storage_bucket": "capstone-58aee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:112142908094:android:57f9c348a122e2deebbcef",
+        "android_client_info": {
+          "package_name": "com.example.safetify203v"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5Vq4PFr8WeWRJt5heKTV_FGKKYsqkMLw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

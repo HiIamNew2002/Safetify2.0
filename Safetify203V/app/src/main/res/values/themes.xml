@@ -8,6 +8,8 @@
         <item name="android:textColorPrimary">@color/white</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="drawerArrowStyle">@style/DrawerIconStyle</item>
+        
+        <item name="rippleColor">@color/greyDarkDisabled</item>
     </style>
 
     <style name="Theme.Safetify203V" parent="Base.Theme.Safetify203V" />
@@ -33,4 +35,28 @@
         <item name="android:width">250dp</item>
     </style>
 
+    <style name="TextLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:layout_marginBottom">20dp</item>
+        <item name="boxBackgroundColor">@color/grey</item>
+        <item name="boxStrokeColor">@color/strokeColor</item>
+        <item name="boxCornerRadiusBottomStart">26dp</item>
+        <item name="boxCornerRadiusBottomEnd">26dp</item>
+        <item name="boxCornerRadiusTopStart">26dp</item>
+        <item name="boxCornerRadiusTopEnd">26dp</item>
+    </style>
+
+    //recording gallery
+    <style name="SearchInputStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxBackgroundColor">@color/grey</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="android:layout_margin">16dp</item>
+        <item name="boxCornerRadiusTopStart">36dp</item>
+        <item name="boxCornerRadiusTopEnd">36dp</item>
+        <item name="boxCornerRadiusBottomStart">36dp</item>
+        <item name="boxCornerRadiusBottomEnd">36dp</item>
+        <item name="endIconMode">clear_text</item>
+        <item name="startIconDrawable">@drawable/ic_search_24</item>
+    </style>
 </resources>
