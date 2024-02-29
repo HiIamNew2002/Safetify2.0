@@ -73,4 +73,18 @@
                 app:destination="@id/greeting5Fragment" />
         </fragment>
     </navigation>
+    <fragment
+        android:id="@+id/callFragment"
+        android:name="com.example.safetify203v.CallFragment"
+        android:label="fragment_call"
+        tools:layout="@layout/fragment_call" >
+        <action
+            android:id="@+id/action_callFragment_to_recordingFragment"
+            app:destination="@id/recordingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/recordingFragment"
+        android:name="com.example.safetify203v.RecordingFragment"
+        android:label="fragment_recording"
+        tools:layout="@layout/fragment_recording" />
 </navigation>
