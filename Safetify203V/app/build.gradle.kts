@@ -44,8 +44,8 @@ android {
         jvmTarget = "1.8"
     }
 
-}
 
+}
 dependencies {
 
     implementation("androidx.core:core-ktx:1.8.0")
@@ -58,4 +58,7 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    implementation ("androidx.activity:activity-ktx:1.3.1")
+    implementation ("com.github.barteksc:android-pdf-viewer:2.8.2")
+
 }
