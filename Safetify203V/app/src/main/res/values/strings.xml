@@ -14,4 +14,230 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
 
+    <!--STRING FOR TNC-->
+    <string name="required_permissions">
+   <![CDATA[
+   Required Permissions and Access for Safetify features and functionalities:\n\n
+    1. Reporting System\n
+    Required Permission/Access: Location, Camera, and File Storage.\n\n
+    2. Legal Assistance\n
+    Required Permission/Access: Legal Guidance and Assistance.\n\n
+    3. Evidence Submission System\n
+    Required Permission/Access: Camera and File Storage.\n\n
+    4. Donation\n
+    Required Permission/Access: Financial Transaction and third-party financial platforms.\n\n
+    5. Panic Button\n
+    Required Permission/Access: Live location and contacts.\n\n
+    6. Third-party Reporting\n
+    Required Permission/Access: File storage and camera.\n\n
+    7. Voice call / Video call Simulation\n
+    Required Permission/Access: Audio and Camera.\n\n
+    8. Offline Safety Guidelines\n
+    Required Permission/Access: File Storage.\n\n
+    9. Emergency Voice-recording\n
+    Required Permission/Access: Audio recording and file storage.\n\n
+    10. Safe Routes\n
+    Required Permission/Access: Live location.\n\n
+    11. Location Tracking\n
+    Required Permission/Access: Location Sharing.\n\n
+    12. Alarm\n
+    Required Permission/Access: Device sound system.\n\n
+    13. Button Accessibility\n
+    Required Permission/Access: Device buttons settings.\n
+    ]]>
+</string>
+
+    <string name="platform_content">
+    1. The entirety of the content, including text, graphics, write-ups, videos, user interfaces, visual interfaces, photographs, trademarks, logos, brand names, descriptions, sounds, music, and artwork (collectively referred to as \'Content\'), is either generated/provided by users or third parties. We have no control over, and provide no assurances regarding the quality, accuracy, integrity, or authenticity of such content or any other information presented on the Platform.\n\n
+    2. All content showcased on the Platform is protected by copyright and may not be reused by you or any third party without prior written consent from us and the copyright owner.\n\n
+    3. You are solely accountable for the accuracy, authenticity, quality, and authenticity of the details you share on the Platform. While you can provide feedback and comments via the Platform, we hold no liability for feedback or comments made by other users or in relation to any content on the Platform. Moreover, the Platform reserves the right to suspend or terminate the account of any user found to have created, shared, or submitted content that is untrue, inaccurate, misleading, or offensive. You are responsible for addressing any financial or legal losses resulting from the creation, sharing, or submission of content that is deemed to be untrue, inaccurate, misleading.\n\n
+    4. You are granted a personal, non-exclusive, non-transferable, revocable, limited privilege to access the content on the Platform. Without written permission from us, you shall not copy, adapt, or modify any content.
+    </string>
+
+    <string name="indemnification">
+    You hereby agree to indemnify, defend, and absolve us, as well as our respective directors, officers, employees, and agents (collectively referred to as "Parties"), from any and all losses, liabilities, claims, damages, demands, costs, and expenses (including legal fees and disbursements, as well as interest charges) that are asserted against or incurred by us. These losses may arise from, result from, or be payable due to any breach or non-performance of any representation, warranty, covenant, or agreement made, or obligation to be performed, in accordance with these Terms of Service. Additionally, you undertake to hold us harmless against any claims made by third parties, whether due to, arising out of, or in connection with:\n
+    1. Your utilization of the Platform; n
+    2. Your infringement of these Terms of Service;\n
+    3. Your violation of the rights of another party;\n
+    4. Your alleged inappropriate behavior as per these Terms of Service;\n
+    5. Your actions in connection with the Platform;
+    </string>
+
+    <string name="limitationofliability">
+    We do not assume responsibility for any outcomes resulting from the following occurrences:\n
+    1. Inoperability or non-responsiveness of the Platform due to connectivity issues related to internet connection, including but not limited to slow or absent connectivity, server failure.\n
+    2. Submission of inaccurate information or data, or any data deletion.\n
+    3. Delays or incapacity to communicate via email.\n
+    4. Deficiency or defect in the Services administered by us.\n
+    5. Malfunctioning of any other service provided by us.\n
+    6. The Platform assumes no responsibility for errors or omissions, whether on its own behalf or otherwise, and disclaims liability for any damages to you, your possessions, or any third party arising from the use or misuse of the Platform or any services provided by Us through it. The services, as well as any content or material displayed on the platform, are provided without any guarantees, conditions, or warranties regarding accuracy, suitability, completeness, or reliability. We will not be held liable for the unavailability or failure of the Platform.\n
+    7. You are required to comply with all applicable laws and Policies, which are incorporated into these Terms of Service by reference. The Platform explicitly disclaims liability for any loss or damage not reasonably foreseeable by the Platform and resulting from your use of the Platform, including loss of profits, or any breach of these Terms of Service by you.\n
+    8. To the maximum extent permitted by law, We disclaim liability for any loss or damage, regardless of the form of action or basis of any claim, and you acknowledge that your sole and exclusive remedy for any dispute with us is to terminate your use of the Platform.
+    </string>
+
+    <string name="termination">
+    We retain the authority to unilaterally cease your access to the Platform, or any part of it, at any time and without providing notice or a specific cause. Additionally, we hold the universal right to prohibit your access to any or all of our services on the Platform without prior notification or explanation, aiming to safeguard the interests of the Platform and/or other users.\n\n
+    We maintain the right to modify, restrict, or grant varied access to the Platform and its features for different users, or to alter any features or introduce new ones without prior notice. It is essential to note that you remain obligated by these Terms of Service, and you expressly acknowledge that you do not possess the right to terminate these Terms of Service until their expiration.\n\n
+    In addition to any other available legal remedies, we have the authority, at our sole discretion, to restrict your access and/or activity on the Platform. This may involve promptly revoking your access credentials either temporarily or permanently, suspending or terminating your affiliation with the Platform, and/or denying the use of the Platform. We are not obligated to provide notice or specify the cause for taking such actions in the following situations:\n\n
+    1. You breach any of these Terms of Service and Privacy Policy.\n
+    2. You provide inaccurate, incomplete, or incorrect information.\n
+    3. Your actions, as determined solely by us, have the potential to cause harm, damage, or loss to other users or to us.
+    </string>
+
+    <string name="intellectualpropertyrights">
+    1. Unless explicitly agreed upon in written form, nothing stated herein grants you the right to utilize any trade names, trademarks, service marks, logos, domain names, information, questions, answers, solutions, reports, and other distinctive brand features unless in accordance with the provisions outlined in these Terms of Service available on the Platform. All logos, trademarks, brand names, service marks, domain names, material, designs, and graphics created by either the Platform or third parties, along with other distinctive brand features of the Platform, belong to the Platform or the respective copyright or trademark owner. Additionally, concerning the Platform, we retain exclusive ownership of all designs, graphics, and similar elements related to the Platform.\n\n
+    2. You are prohibited from using any intellectual property displayed on the Platform in a manner likely to cause confusion among current or potential users of the Platform, or in any way that disparages or discredits the Platform, as determined solely at our discretion.\n\n
+    3. You acknowledge that all intellectual property, including copyrights, related to the services, is owned by the creators, and no transfer of such intellectual property occurs from the creators to you. We solely provide the Platform as a means for you to communicate with other users, and the Platform does not own the intellectual property related to independent content displayed on the Platform, except for created graphics and specified content.\n\n
+    4. You also acknowledge that any reproduction or infringement of the intellectual property belonging to the aforementioned owners may result in legal action initiated against you by the respective owners of the intellectual property. It is agreed that the contents of this section will persist even after the termination or expiration of these Terms of Service and/or Privacy Policy.</string>
+
+
+    <string name="disputeresolution">
+<![CDATA[
+In the event of any dispute arising out of or in connection with this agreement, including any dispute relating to the validity of this agreement, the parties shall, in the first instance, seek to resolve the dispute through mediation administered by the Women&apos;s Aid Organization (<a href="https://wao.org.my/">https://wao.org.my/</a>) and conducted in accordance with the Women&apos;s Aid Organization Rules of Mediation, by a sole mediator appointed by the Women&apos;s Aid Organization.
+
+If the parties are unable to resolve the dispute through mediation within 45 days of its initiation, unless there is an agreement to the contrary between the parties, the dispute shall be ultimately settled through arbitration administered by the Women&apos;s Aid Organization. The arbitration shall be conducted in accordance with the Rules of Arbitration of the Women&apos;s Aid Organization, by a sole arbitrator appointed by the Women&apos;s Aid Organization. The language of the arbitration shall be English. The seat of arbitration shall be Kuala Lumpur, Malaysia.
+
+You expressly agree that the Terms of Service, Privacy Policy, and any other agreements entered into between the Parties are governed by the laws, rules, and regulations of Malaysia.
+]]>
+</string>
+
+    <string name="useraccount">
+    <![CDATA[
+    When you create an account in Safetify, you must provide us with information that is accurate, complete, and current at all times. Failure to do so constitutes a breach of the terms, which may result in the immediate termination of your account on our service.\n\n
+    You are responsible for safeguarding the password that you use to access the service and for any activities or actions under your password, whether your password is with our service or a third-party social media service.\n\n
+    You agree not to disclose your password to any third party. You must notify us immediately upon becoming aware of any breach of security or unauthorized use of your account.\n\n
+    You may not use as a username the name of another person or entity that is not lawfully available for use, a name or trademark that is subject to any rights of another person or entity other than you without appropriate authorization, or a name that is otherwise offensive, vulgar, or obscene.
+    ]]>
+    </string>
+
+    <string name="safetify_features_1">
+    <![CDATA[
+    1. Reporting System\n\n
+    Users are encouraged to utilize the reporting feature responsibly and truthfully. By submitting a report, users acknowledge that they have provided complete truthful information and understand that the provided information, including location data, evidence, and any other relevant details, will be shared with relevant authorities and law enforcement agencies for the purpose of initiating investigations related to safety concerns and incidents of violence. It is imperative for users to recognize the serious nature of reporting and the potential legal consequences of providing false or misleading information.\n\n
+    Safetify emphasizes the importance of reporting only genuine incidents to ensure the credibility and effectiveness of the reporting system. By agreeing to these terms and conditions, users commit to upholding the integrity of the reporting feature, contributing to a safer environment for all Safetify users, and actively supporting efforts to combat violence and ensure the well-being of the community.\n\n
+    ]]>
+    </string>
+
+    <string name="safetify_features_2">
+    <![CDATA[
+    2. Legal Assistance:\n\n
+    The legal assistance feature is designed to provide users with guidance and assistance concerning legal procedures that victims may be pursuing. The information provided through this feature is for general guidance purposes only and does not constitute legal advice. Users are encouraged to seek professional legal advice for their specific situations.\n\n
+    To use the legal assistance feature, users must meet any eligibility criteria established by the provider. Users must provide accurate and current information as required during the use of the feature. While the provider strives to provide accurate and up-to-date information, the legal landscape may change, and the feature may not always reflect the latest developments. Users are advised to verify the information and seek professional legal advice for the most current guidance.\n\n
+    Users agree to use the legal assistance feature responsibly and in compliance with all applicable laws. Any misuse, unauthorized access, or fraudulent activities related to the feature may result in termination of access and legal action.\n\n
+    ]]>
+    </string>
+
+    <string name="safetify_features_3">
+    <![CDATA[
+    3. Evidence Submission System:\n\n
+    By using this feature, users understand and agree that the submitted data, including documents and photographs, will be stored securely in the application\s database. The app ensures the confidentiality and integrity of the submitted evidence; however, users are solely responsible for the authenticity and accuracy of the documents provided.\n\n
+    Furthermore, users bear sole responsibility for ensuring the authenticity, accuracy, and legality of the documents and information they submit. The Provider does not undertake the verification of the accuracy or authenticity of the materials submitted, relying on users to provide truthful and valid information.\n\n
+    It is important to note that the Provider may access the submitted data, documents, or photographs for the purpose of facilitating the functionality of the Evidence Submission System feature. Users are encouraged to exercise caution and discretion in the materials they submit, considering the sensitivity and confidentiality of legal evidence. These terms supplement the general terms and conditions governing the use of the application and its features.\n\n
+    ]]>
+    </string>
+
+
+    <string name="safetify_features_5">
+    <![CDATA[
+    4. Panic Button:\n\n
+    By choosing to utilize the Panic Button feature, users grant Safetify permission to send automated distress signals, including real-time location information, to the individuals specified by the user during emergency situations. It is essential for users to comprehend that the effectiveness of the Panic Button is contingent on network availability and GPS signal strength. As such, the application cannot guarantee an immediate response or assistance, and users should exercise caution and awareness in emergency situations.\n\n
+    In conjunction with the Panic Button feature, users are encouraged to educate their designated emergency contacts about Safetify. It is vital for users to inform their designated contacts about their role in providing assistance when a distress signal is received. Users explicitly understand and agree that their emergency contacts may take appropriate action based on the distress signals and location information received. This action may include notifying relevant authorities or physically responding to the user\'s specified location.\n\n
+    The Panic Button feature is designed to enhance personal safety; however, users should recognize its limitations and exercise it responsibly. By utilizing this feature, users express their understanding of these terms and their willingness to engage in a collaborative effort to ensure their safety during critical situations. These terms complement the overarching terms and conditions governing the use of Safetify and its array of features.\n\n
+    ]]>
+    </string>
+
+    <string name="safetify_features_6">
+    <![CDATA[
+    5. Third-party Reporting:\n\n
+    In utilizing the Third-Party Reporting feature, users accept the responsibility to furnish accurate and truthful information concerning witnessed incidents. This feature caters to concerned individuals, such as neighbors, close relatives, or passersby, who may not be directly involved but can contribute additional information to aid in collecting sufficient evidence for the case at hand. It is imperative for users to understand that any attempt to falsify or mislead with inaccurate details may result in the suspension of their reporting privilege.\n\n
+    Users engaging with the Third-Party Reporting feature are strongly encouraged to provide detailed and relevant information while respecting the privacy and dignity of the individuals involved. Safetify places immense value on the cooperation of its users in ensuring the credibility and reliability of the Third-Party Reporting feature. The integrity of the information provided is instrumental in facilitating a fair and just process for all parties involved.\n\n
+    By participating in the Third-Party Reporting feature, users express their commitment to upholding the principles of truthfulness, transparency, and sensitivity. These terms complement the overarching terms and conditions governing the use of Safetify and contribute to fostering a community dedicated to ensuring safety and well-being.\n\n
+    ]]>
+    </string>
+
+    <string name="safetify_features_7">
+    <![CDATA[
+    6. Voice call / Video call Simulation:\n\n
+    Engaging with the Women\'s Safety Simulation feature, users recognize its purpose to accompany and assist women during potentially unsettling trips by simulating various environments and encounters with suspicious individuals. It is crucial for users to approach this simulation responsibly, utilizing it for educational purposes and to enhance awareness of safety measures.\n\n
+    Users are encouraged to use the Voice Call / Video Call Simulation feature as a tool for self-preparedness and understanding potential challenges that may arise in different scenarios. Safetify emphasizes the educational aspect of this feature and urges users to refrain from using it for purposes other than those intended, such as causing unnecessary panic or distress.\n\n
+    By participating in the Voice Call / Video Call Simulation feature, users commit to using this tool responsibly and contributing to a safer and more informed community. These terms supplement the overarching terms and conditions governing the use of Safetify and its diverse features, reinforcing the platform\'s dedication to promoting safety and well-being.\n\n
+    ]]>
+    </string>
+
+    <string name="safetify_features_8">
+    <![CDATA[
+    7. Offline Safety Guidelines:\n\n
+    Accessing the offline safety guidelines feature, users recognize the availability of documents outlining actions to be taken in various scenarios, empowering victims to protect themselves. These guidelines are thoughtfully provided for offline access, intending to serve as a valuable resource for personal safety. Users acknowledge that the information presented in these documents is of a general nature and may not comprehensively cover every conceivable situation.\n\n
+    It is incumbent upon the user to assess the relevance of the offline safety guidelines to their specific circumstances, recognizing that these guidelines provide a foundation for understanding safety measures. Safetify emphasizes the importance of proactive engagement with these resources for self-preparedness and personal safety.\n\n
+    By utilizing the offline safety guidelines feature, users affirm their responsibility in applying the provided information judiciously and adapting it to their unique situations. These terms align with the overarching terms and conditions governing the use of Safetify and underscore the platform\'s commitment to fostering individual empowerment and safety awareness.\n\n
+    ]]>
+    </string>
+
+    <string name="safetify_features_9">
+    <![CDATA[
+    8. Emergency Voice-recording:\n\n
+    Engaging with the emergency voice-recording feature, users comprehend and accept that audio recording will be initiated in response to high-volume screaming, shouting, or when triggered manually by the user. It is crucial for users to acknowledge that the creators of this feature shall not be held responsible for any misuse or unauthorized access to the recorded audio files.\n\n
+    Users are strongly encouraged to use the Emergency Voice-Recording feature responsibly, ensuring compliance with all applicable laws and regulations governing audio recording. Safetify emphasizes the importance of ethical and lawful utilization of this feature
+    ]]>
+    </string>
+
+    <string name="safetify_features_10">
+    <![CDATA[
+    9. Safe Routes:\n\n
+    Engaging with the Safe Routes feature, users recognize that the provided routes are strategically designed to guide individuals to the nearest police station or other predetermined safe locations during emergencies. These routes are generated based on available data and are intended to serve as a helpful tool for users to swiftly navigate to secure locations.\n\n
+    It is essential for users to understand that the accuracy and availability of these routes may fluctuate based on real-time conditions, including traffic and road closures. Users are encouraged to exercise caution and use their discretion when following the suggested routes. Additionally, users bear the responsibility of complying with local laws and regulations while utilizing the Safe Routes feature to ensure a safe and lawful journey.\n\n
+    By utilizing the safe routes feature, users affirm their understanding of its intended purpose and commit to using this tool responsibly. These terms complement the overarching terms and conditions governing the use of Safetify, reinforcing the platform\'s commitment to providing resources that enhance user safety and well-being.\n\n
+    ]]>
+    </string>
+
+    <string name="safetify_features_11">
+    <![CDATA[
+    10. Location Tracking:\n\n
+    Engaging with the Location Tracking feature, users explicitly agree to enable location sharing with their entrusted group of people and close relatives. Users retain the flexibility to customize the individuals with whom they share their whereabouts, fostering a personalized and secure experience. Furthermore, the feature is designed to automatically notify default contacts when a user enters a new location, enhancing communication and awareness.\n\n
+    Users acknowledge that the accuracy of location data may be influenced by various factors, including GPS signal strength and network availability. While Safetify strives to provide reliable location information, users are encouraged to use their discretion and consider potential variations in accuracy.\n\n
+    It is imperative for users to respect the privacy and preferences of their designated contacts. The creators of the Location Tracking feature shall not be held liable for any disputes or conflicts arising from the sharing of location information, underscoring the importance of open communication and mutual understanding among users. These terms complement the overarching terms and conditions governing the use of Safetify, reinforcing the platform\'s commitment to user privacy and safety.\n\n
+    ]]>
+    </string>
+
+    <string name="safetify_features_12">
+    <![CDATA[
+    11. Alarm:\n\n
+    By engaging with the Emergency Alarm feature, users acknowledge and agree that activating the designated button will produce a high-pitched sound from the device during emergency situations. This attention-grabbing Emergency Alarm is designed to swiftly alert others in the vicinity.\n\n
+    Users understand the importance of using the Emergency Alarm judiciously and only in genuine emergency situations. The loud nature of the alarm necessitates responsible use to prevent unnecessary panic or disturbance to others. Safetify emphasizes that the Emergency Alarm feature is a tool for enhancing personal safety and should not be activated frivolously.\n\n
+    It is crucial for users to recognize that the creators of this feature shall not be held responsible for any consequences arising from the appropriate or inappropriate use of the Emergency Alarm. Users are strongly encouraged to familiarize themselves with local laws and regulations governing the use of such alarms and commit to using this feature responsibly. These terms complement the overarching terms and conditions governing the use of Safetify, reinforcing the platform\'s dedication to responsible and lawful feature utilization.\n\n
+    ]]>
+    </string>
+
+    <string name="safetify_features_13">
+    <![CDATA[
+    12. Button Accessibility:\n\n
+    Engaging with the Button Accessibility feature, users expressly acknowledge and agree to leverage existing buttons on their electronic device for easy access to Safetify\'s features. This innovative feature is crafted to prioritize user convenience, fostering a streamlined and accessible interaction process.\n\n
+    While Safetify endeavors to ensure the seamless integration of the Button Accessibility feature, users bear the responsibility of ensuring that the reassignment of button functions does not impede the normal operation of their device or conflict with the functionalities of other applications. It is crucial for users to exercise diligence in customizing button functions to maintain optimal device performance.\n\n
+    The creators of this feature emphasize that they shall not be held liable for any disruptions or inconveniences arising from the user-initiated customization of button functions. These terms complement the overarching terms and conditions governing the use of Safetify, reinforcing the platform\'s commitment to user-friendly and reliable accessibility features.\n\n
+    ]]>
+    </string>
+
+    <string name="safetify_features_14">
+    <![CDATA[
+    13. Customization:\n\n
+    Embracing the Customization feature, users explicitly acknowledge and agree to the empowering capability of personalizing their Safetify application in alignment with individual preferences. This expansive customization spectrum encompasses the establishment of emergency contacts, activation of optional features, and fine-tuning alert settings to cater to unique needs and requirements.\n\n
+    Users bear the responsibility to ensure the accuracy and relevance of the information provided during the customization process. The creators of this feature emphasize that they shall not be held responsible for any consequences arising from the utilization of inaccurate or outdated information. To ensure the efficacy of the Customization feature, users are strongly encouraged to routinely review and update their preferences, particularly in instances of modifications to emergency contacts or other pertinent details.\n\n
+    These additional terms and conditions complement the overarching framework governing the use of Safetify, underscoring the platform\'s commitment to providing users with a personalized and responsive safety experience.\n\n
+    ]]>
+    </string>
+
+    <string name="otherterms">
+    <![CDATA[
+    1. Entire Agreement:\n\n
+    This set of Terms of Service, when considered alongside the Privacy Policy, constitutes the comprehensive and ultimate agreement between us concerning the subject matter herein, surpassing all prior communications, representations, and agreements (whether oral, written, or otherwise) related to the same.\n\n
+    2. Waiver:\n\n
+    The failure to insist on the performance of any provision within these Terms of Service at any given time will not impede our right to enforce the same provision at a later date. No waiver on our part of any breach of these Terms of Service, whether through conduct or other means, in one or multiple instances, will be construed as a continuous waiver of that particular breach or any other breach within these Terms of Service.\n\n
+    3. Severability:\n\n
+    In the event that any provision or clause within these Terms of Service is deemed invalid, illegal, or unenforceable by any competent court or authority, the remaining provisions or clauses will remain unaffected. The validity, legality, and enforceability of the other provisions or clauses will not be impaired, and each such provision or clause will be valid and enforceable to the maximum extent allowed by law. If necessary, these Terms of Service will be adjusted to the minimum extent required to rectify any invalidity, illegality, or unenforceability while preserving the original rights, intentions, and commercial expectations of the involved parties.\n\n
+    4. Contact Us:\n\n
+    For any inquiries about these Terms of Service, the Platform\'s practices, or your experiences, you can reach out to us via email at support@safetify.app.
+    ]]>
+    </string>
+
+
 </resources>

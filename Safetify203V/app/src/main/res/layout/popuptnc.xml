@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/TncBg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/tncbg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.498" />
+
+    <ImageView
+        android:id="@+id/CloseIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/closeicon"
+        app:layout_constraintBottom_toBottomOf="@+id/TncBg"
+        app:layout_constraintEnd_toEndOf="@+id/TncBg"
+        app:layout_constraintHorizontal_bias="0.097"
+        app:layout_constraintStart_toStartOf="@+id/TncBg"
+        app:layout_constraintTop_toTopOf="@+id/TncBg"
+        app:layout_constraintVertical_bias="0.075" />
+
+    <TextView
+        android:id="@+id/TermsAndCondition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/CloseIcon"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="92dp"
+        android:fontFamily="@font/poppinssemibold"
+        android:text="Terms and Conditions"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/TncBg"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="@+id/TncBg"
+        app:layout_constraintTop_toTopOf="@+id/TncBg" />
+
+    <ImageView
+        android:id="@+id/NotesIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/TermsAndCondition"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/notesicon"
+        app:layout_constraintTop_toBottomOf="@+id/TermsAndCondition"
+        tools:layout_editor_absoluteX="168dp" />
+
+    <TextView
+        android:id="@+id/termsAndConditionsTextView"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/NotesIcon"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/poppinsregular"
+        android:text="To continue using our app,  please review and agree to our"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/TncBg"
+        app:layout_constraintStart_toStartOf="@+id/TncBg"
+        app:layout_constraintTop_toBottomOf="@+id/NotesIcon" />
+
+    <TextView
+        android:id="@+id/BlackUnderlined"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/termsAndConditionsTextView"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/poppinsregular"
+        android:text="Terms &amp; Condition and Privacy Policy"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/TncBg"
+        app:layout_constraintStart_toStartOf="@+id/TncBg"
+        app:layout_constraintTop_toBottomOf="@+id/termsAndConditionsTextView" />
+
+    <LinearLayout
+        android:id="@+id/agreement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/BlackUnderlined"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/TncBg"
+        app:layout_constraintStart_toStartOf="@+id/TncBg"
+        app:layout_constraintTop_toBottomOf="@+id/BlackUnderlined">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/smallbox" />
+        <!-- THIS IS THE TICK ICON, AFTER THE BLANK BOX CLICKED, THE BOX WILL CHANGE TO TICKED BOX-->
+        <!--  <ImageView
+              android:layout_width="15dp"
+              android:layout_height="15dp"
+              android:src="@drawable/tickagree"
+              /> -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:fontFamily="@font/poppinsregular"
+            android:text="I have agreed to the terms and conditions "
+            android:textColor="@color/white"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/myButton"
+        android:layout_width="147dp"
+        android:layout_height="38dp"
+        android:layout_below="@+id/agreement"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:width="150dp"
+        android:height="40dp"
+        android:background="@drawable/buttonorange"
+        android:fontFamily="@font/poppinssemibold"
+        android:text="Review T&amp;C"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/TncBg"
+        app:layout_constraintEnd_toEndOf="@+id/TncBg"
+        app:layout_constraintStart_toStartOf="@+id/TncBg"
+        app:layout_constraintTop_toBottomOf="@+id/agreement"
+        app:layout_constraintVertical_bias="0.156" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
