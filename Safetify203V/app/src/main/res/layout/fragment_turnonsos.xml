@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/soscircleicon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="112dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/circle" />
+
+    <TextView
+        android:id="@+id/EmailVerification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/poppinssemibold"
+        android:text="Turn On &#10; Emergency SOS Button"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/soscircleicon" />
+
+    <TextView
+        android:id="@+id/DescVerification"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/EmailVerification"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:fontFamily="@font/poppinsregular"
+        android:text="Do you know that there is a SOS Button embedded in your phone?
+        &#10; Let’s turn it on"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/EmailVerification" />
+
+    <ImageView
+        android:id="@+id/imageView17"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/turnonsosicon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/DescVerification" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="85dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/interregular"
+        android:text="Open Settings  on your
+Android device"
+        android:textAlignment="center"
+        android:textSize="11dp"
+        app:layout_constraintStart_toStartOf="@+id/imageView17"
+        app:layout_constraintTop_toTopOf="@+id/textView16" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="95dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="10dp"
+        android:fontFamily="@font/interregular"
+        android:text="Look for an option related 'Safety &amp; emergency'"
+        android:textAlignment="center"
+        android:textSize="11dp"
+        app:layout_constraintEnd_toStartOf="@+id/textView17"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textView12"
+        app:layout_constraintTop_toBottomOf="@+id/imageView17" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="95dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/interregular"
+        android:text="Tap on the Emergency SOS and activate it"
+        android:textAlignment="center"
+        android:textSize="11dp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView17"
+        app:layout_constraintTop_toTopOf="@+id/textView16" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnGo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="108dp"
+        android:background="@drawable/buttonorange"
+        android:fontFamily="@font/poppinssemibold"
+        android:text="Open Settings"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView16"
+        app:layout_constraintVertical_bias="0.542" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
