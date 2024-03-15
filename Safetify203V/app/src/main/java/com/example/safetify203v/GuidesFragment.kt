@@ -28,7 +28,9 @@ class GuidesFragment : Fragment() {
 
         // Find the floating action button by its ID
         val floatingbutton = rootView.findViewById<FloatingActionButton>(R.id.floatingbutton)
-
+        val floatingbutton2 = rootView.findViewById<FloatingActionButton>(R.id.floatingbutton2)
+        val floatingbutton3 = rootView.findViewById<FloatingActionButton>(R.id.floatingbutton3)
+        val floatingbutton4 = rootView.findViewById<FloatingActionButton>(R.id.floatingbutton4)
         // Initialize the BroadcastReceiver
         downloadReceiver = object : BroadcastReceiver() {
             override fun onReceive(context: Context?, intent: Intent?) {
@@ -46,7 +48,46 @@ class GuidesFragment : Fragment() {
         // Set a click listener on the floating action button
         floatingbutton.setOnClickListener {
             val request = DownloadManager.Request(
-                Uri.parse("https://atmiyauni.ac.in/public/file/1675762289.Atmiya-University-Main-Brochure.pdf")
+                Uri.parse("https://wao.org.my/wp-content/uploads/2018/08/Domestic-Violence-Shelter-Toolkit.pdf")
+            )
+                .setTitle("Safetify_Full_Guides")
+                .setDescription("Safetify Guides Downloading")
+                .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE)
+                .setAllowedOverMetered(true)
+
+            dm = requireActivity().getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
+            myDownloadId = dm.enqueue(request)
+        }
+
+        floatingbutton2.setOnClickListener {
+            val request = DownloadManager.Request(
+                Uri.parse("https://wao.org.my/wp-content/uploads/2018/08/Perspectives-on-Domestic-Violence.pdf")
+            )
+                .setTitle("Safetify_Full_Guides")
+                .setDescription("Safetify Guides Downloading")
+                .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE)
+                .setAllowedOverMetered(true)
+
+            dm = requireActivity().getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
+            myDownloadId = dm.enqueue(request)
+        }
+
+        floatingbutton3.setOnClickListener {
+            val request = DownloadManager.Request(
+                Uri.parse("https://wao.org.my/wp-content/uploads/2023/07/WAO-Annual-Report-2022.pdf")
+            )
+                .setTitle("Safetify_Full_Guides")
+                .setDescription("Safetify Guides Downloading")
+                .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE)
+                .setAllowedOverMetered(true)
+
+            dm = requireActivity().getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
+            myDownloadId = dm.enqueue(request)
+        }
+
+        floatingbutton4.setOnClickListener {
+            val request = DownloadManager.Request(
+                Uri.parse("https://wao.org.my/wp-content/uploads/2021/05/AGM-Report_2020.pdf")
             )
                 .setTitle("Safetify_Full_Guides")
                 .setDescription("Safetify Guides Downloading")
