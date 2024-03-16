@@ -40,7 +40,10 @@ class Greeting6Fragment : Fragment() {
         super.onStart()
         val btn: Button = requireActivity().findViewById(R.id.btnGo)
 
+        //Transition from greeting to app
         btn.setOnClickListener {
+
+
             val intent = Intent(requireContext(), SignUpActivity::class.java)
             startActivity(intent)
         }

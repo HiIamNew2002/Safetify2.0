@@ -14,4 +14,6 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
 
+    <string name="google_map_api_key">"AIzaSyAwThKtj-lqKb3QtAc6tzKW6joo5auEq3g"</string>
+
 </resources>

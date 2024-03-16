@@ -11,10 +11,10 @@
         android:title="Alarm"
         android:icon="@drawable/baseline_alarm_24dp"/>
 
-    <item
-        android:id = "@+id/bottom_home"
-        android:title="Home"
-        android:icon="@drawable/baseline_home_24dp"/>
+<!--    <item-->
+<!--        android:id = "@+id/bottom_home"-->
+<!--        android:title="Home"-->
+<!--        android:icon="@drawable/baseline_home_24dp"/>-->
 
     <item
         android:id = "@+id/bottom_call"

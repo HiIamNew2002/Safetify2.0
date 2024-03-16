@@ -25,8 +25,6 @@ class SignUpActivity : AppCompatActivity() {
             val password = binding.signupPassword.text.toString()
             val confirmPassword = binding.signupConfirm.text.toString()
 
-            
-
             if(email.isNotEmpty() && password.isNotEmpty() && confirmPassword.isNotEmpty()){
                 if(password == confirmPassword){
                     firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener{
@@ -44,6 +42,7 @@ class SignUpActivity : AppCompatActivity() {
                 Toast.makeText(this, "Fields cannot be empty", Toast.LENGTH_SHORT).show()
             }
         }
+
         binding.loginRedirectText.setOnClickListener{
             val loginIntent = Intent(this, LoginActivity::class.java)
             startActivity(loginIntent)
