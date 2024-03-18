@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@android:color/transparent"
+        android:scaleType="centerInside"
+        android:src="@drawable/back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.07"/>
+
+    <TextView
+        android:id="@+id/victimheading"
+        style="@style/Heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Victim Report"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/fullname"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Full Name"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/fullname"
+        app:layout_constraintStart_toStartOf="@+id/fullname" />
+
+    <EditText
+        android:id="@+id/fullname"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/victimheading"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/formbg"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/victimheading" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/gender"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Gender"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/gender"
+        app:layout_constraintStart_toStartOf="@+id/gender" /><!-- change to option-->
+
+    <EditText
+        android:id="@+id/gender"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/fullname"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/formbg"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/dob"
+        app:layout_constraintTop_toBottomOf="@+id/fullname" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/dob"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Date of Birth"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/dob"
+        app:layout_constraintStart_toStartOf="@+id/dob" />
+
+    <EditText
+        android:id="@+id/dob"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/fullname"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/formbg"
+        android:inputType="date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/gender"
+        app:layout_constraintTop_toBottomOf="@+id/fullname" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/ethnic"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Ethnicity"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/ethnic"
+        app:layout_constraintStart_toStartOf="@+id/ethnic" /> <!-- change to option-->
+
+    <EditText
+        android:id="@+id/ethnic"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/gender"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/formbg"
+        android:inputType="text"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintEnd_toStartOf="@id/nin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gender" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/nin"
+        android:fontFamily="@font/poppins_bold"
+        android:text="IC/Passport"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/nin"
+        app:layout_constraintStart_toStartOf="@+id/nin" />
+
+    <EditText
+        android:id="@+id/nin"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/dob"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/formbg"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.614"
+        app:layout_constraintStart_toEndOf="@+id/ethnic"
+        app:layout_constraintTop_toBottomOf="@+id/dob" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/nation"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Nationality"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/nation"
+        app:layout_constraintStart_toStartOf="@+id/nation" />
+
+    <EditText
+        android:id="@+id/nation"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/ethnic"
+        android:background="@drawable/formbg"
+        android:layout_marginTop="40dp"
+        app:layout_constraintHorizontal_bias="0.5"
+        android:inputType="text"
+        app:layout_constraintEnd_toStartOf="@id/phone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ethnic" /> <!-- change to option-->
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/phone"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Phone"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/phone"
+        app:layout_constraintStart_toStartOf="@+id/phone" />
+
+    <EditText
+        android:id="@+id/phone"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/nin"
+        android:background="@drawable/formbg"
+        android:inputType="text"
+        android:layout_marginTop="40dp"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/nation"
+        app:layout_constraintTop_toBottomOf="@+id/nin" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/email"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Email"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/email"
+        app:layout_constraintStart_toStartOf="@+id/email" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/nation"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/formbg"
+        android:inputType="text"
+        android:layout_marginTop="40dp"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nation" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/address"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Address"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/address"
+        app:layout_constraintStart_toStartOf="@+id/address" />
+
+    <EditText
+        android:id="@+id/address"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/email"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/formbg"
+        android:inputType="text"
+        android:layout_marginTop="40dp"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/appCompatButton3"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/squaregradient"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Next"
+        android:textAllCaps="false"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/address" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
