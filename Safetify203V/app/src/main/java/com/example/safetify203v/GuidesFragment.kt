@@ -1,19 +1,133 @@
 package com.example.safetify203v
 
+import android.app.DownloadManager
+import android.content.*
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
+import java.io.File
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.content.FileProvider
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class GuidesFragment : Fragment() {
+    private var myDownloadId: Long = 0
+    private lateinit var downloadReceiver: BroadcastReceiver
+    private lateinit var dm: DownloadManager
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_guides, container, false)
+        val rootView = inflater.inflate(R.layout.fragment_guides, container, false)
+
+        // Find the floating action button by its ID
+        val floatingbutton = rootView.findViewById<FloatingActionButton>(R.id.floatingbutton)
+        val floatingbutton2 = rootView.findViewById<FloatingActionButton>(R.id.floatingbutton2)
+        val floatingbutton3 = rootView.findViewById<FloatingActionButton>(R.id.floatingbutton3)
+        val floatingbutton4 = rootView.findViewById<FloatingActionButton>(R.id.floatingbutton4)
+        // Initialize the BroadcastReceiver
+        downloadReceiver = object : BroadcastReceiver() {
+            override fun onReceive(context: Context?, intent: Intent?) {
+                val id = intent?.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1)
+                if (id == myDownloadId) {
+                    Toast.makeText(context, "Safetify Guides Download Completed", Toast.LENGTH_LONG).show()
+
+                    // Open the downloaded file using an Intent
+                    val downloadedFileUri = dm.getUriForDownloadedFile(myDownloadId)
+                    openDownloadedFile(downloadedFileUri)
+                }
+            }
+        }
+
+        // Set a click listener on the floating action button
+        floatingbutton.setOnClickListener {
+            val request = DownloadManager.Request(
+                Uri.parse("https://wao.org.my/wp-content/uploads/2018/08/Domestic-Violence-Shelter-Toolkit.pdf")
+            )
+                .setTitle("Safetify_Full_Guides")
+                .setDescription("Safetify Guides Downloading")
+                .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE)
+                .setAllowedOverMetered(true)
+
+            dm = requireActivity().getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
+            myDownloadId = dm.enqueue(request)
+        }
+
+        floatingbutton2.setOnClickListener {
+            val request = DownloadManager.Request(
+                Uri.parse("https://wao.org.my/wp-content/uploads/2018/08/Perspectives-on-Domestic-Violence.pdf")
+            )
+                .setTitle("Safetify_Full_Guides")
+                .setDescription("Safetify Guides Downloading")
+                .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE)
+                .setAllowedOverMetered(true)
+
+            dm = requireActivity().getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
+            myDownloadId = dm.enqueue(request)
+        }
+
+        floatingbutton3.setOnClickListener {
+            val request = DownloadManager.Request(
+                Uri.parse("https://wao.org.my/wp-content/uploads/2023/07/WAO-Annual-Report-2022.pdf")
+            )
+                .setTitle("Safetify_Full_Guides")
+                .setDescription("Safetify Guides Downloading")
+                .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE)
+                .setAllowedOverMetered(true)
+
+            dm = requireActivity().getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
+            myDownloadId = dm.enqueue(request)
+        }
+
+        floatingbutton4.setOnClickListener {
+            val request = DownloadManager.Request(
+                Uri.parse("https://wao.org.my/wp-content/uploads/2021/05/AGM-Report_2020.pdf")
+            )
+                .setTitle("Safetify_Full_Guides")
+                .setDescription("Safetify Guides Downloading")
+                .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE)
+                .setAllowedOverMetered(true)
+
+            dm = requireActivity().getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
+            myDownloadId = dm.enqueue(request)
+        }
+
+        // Register the BroadcastReceiver
+        requireContext().registerReceiver(
+            downloadReceiver,
+            IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE)
+        )
+
+        return rootView
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        // Unregister the BroadcastReceiver when the fragment is destroyed
+        requireContext().unregisterReceiver(downloadReceiver)
+    }
+
+    private fun openDownloadedFile(fileUri: Uri?) {
+        fileUri?.let {
+            val openIntent = Intent(Intent.ACTION_VIEW)
+            openIntent.setDataAndType(it, "application/pdf") // Change the MIME type if needed
+            openIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+
+            try {
+                startActivity(openIntent)
+            } catch (e: ActivityNotFoundException) {
+                Toast.makeText(
+                    requireContext(),
+                    "No application found to open the file",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
+    }
 }
