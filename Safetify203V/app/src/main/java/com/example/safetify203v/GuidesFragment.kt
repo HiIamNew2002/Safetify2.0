@@ -3,15 +3,11 @@ package com.example.safetify203v
 import android.app.DownloadManager
 import android.content.*
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
-import java.io.File
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.content.FileProvider
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
@@ -51,7 +47,7 @@ class GuidesFragment : Fragment() {
                 Uri.parse("https://wao.org.my/wp-content/uploads/2018/08/Domestic-Violence-Shelter-Toolkit.pdf")
             )
                 .setTitle("Safetify_Full_Guides")
-                .setDescription("Safetify Guides Downloading")
+                .setDescription("Domestic Violence Shelter Standards & Toolkit")
                 .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE)
                 .setAllowedOverMetered(true)
 
@@ -64,7 +60,7 @@ class GuidesFragment : Fragment() {
                 Uri.parse("https://wao.org.my/wp-content/uploads/2018/08/Perspectives-on-Domestic-Violence.pdf")
             )
                 .setTitle("Safetify_Full_Guides")
-                .setDescription("Safetify Guides Downloading")
+                .setDescription("Perspectives on Domestic Violence")
                 .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE)
                 .setAllowedOverMetered(true)
 
@@ -77,7 +73,7 @@ class GuidesFragment : Fragment() {
                 Uri.parse("https://wao.org.my/wp-content/uploads/2023/07/WAO-Annual-Report-2022.pdf")
             )
                 .setTitle("Safetify_Full_Guides")
-                .setDescription("Safetify Guides Downloading")
+                .setDescription("WAO Annual Report 2022")
                 .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE)
                 .setAllowedOverMetered(true)
 
@@ -90,7 +86,7 @@ class GuidesFragment : Fragment() {
                 Uri.parse("https://wao.org.my/wp-content/uploads/2021/05/AGM-Report_2020.pdf")
             )
                 .setTitle("Safetify_Full_Guides")
-                .setDescription("Safetify Guides Downloading")
+                .setDescription("WAO Annual Report 2020")
                 .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE)
                 .setAllowedOverMetered(true)
 
