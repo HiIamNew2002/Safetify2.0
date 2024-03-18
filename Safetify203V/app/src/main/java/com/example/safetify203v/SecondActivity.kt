@@ -38,7 +38,7 @@ class SecondActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
                 R.id.bottom_alarm -> openFragment(AlarmFragment())
                 R.id.bottom_home -> openFragment(HomeFragment())
                 R.id.bottom_guides -> openFragment(GuidesFragment())
-                R.id.bottom_routes -> openFragment(RoutesFragment())
+                R.id.bottom_report -> openFragment(ReportFragment())
             }
             true
         }

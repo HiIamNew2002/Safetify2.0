@@ -2,19 +2,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id = "@+id/bottom_routes"
-        android:title="Routes"
-        android:icon="@drawable/baseline_route_24"/>
+        android:id = "@+id/bottom_report"
+        android:title="Report"
+        android:icon="@drawable/report"/>
 
     <item
         android:id = "@+id/bottom_alarm"
         android:title="Alarm"
-        android:icon="@drawable/baseline_alarm_24dp"/>
+        android:icon="@drawable/alarm_home"/>
 
     <item
         android:id = "@+id/bottom_home"
-        android:title="Home"
-        android:icon="@drawable/baseline_home_24dp"/>
+        android:icon="@drawable/saferoutes"
+        />
 
     <item
         android:id = "@+id/bottom_call"
