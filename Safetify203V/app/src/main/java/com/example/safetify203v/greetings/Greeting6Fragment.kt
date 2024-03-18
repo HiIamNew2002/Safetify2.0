@@ -2,16 +2,14 @@ package com.example.safetify203v.greetings
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.findNavController
-import com.example.safetify203v.R
-import com.example.safetify203v.SecondActivity
-import com.example.safetify203v.databinding.FragmentGreeting6Binding
-import android.content.Context
 import android.widget.Button
+import androidx.fragment.app.Fragment
+import com.example.safetify203v.R
+import com.example.safetify203v.SignUpActivity
+import com.example.safetify203v.databinding.FragmentGreeting6Binding
 
 
 class Greeting6Fragment : Fragment() {
@@ -43,7 +41,7 @@ class Greeting6Fragment : Fragment() {
         val btn: Button = requireActivity().findViewById(R.id.btnGo)
 
         btn.setOnClickListener {
-            val intent = Intent(requireContext(), SecondActivity::class.java)
+            val intent = Intent(requireContext(), SignUpActivity::class.java)
             startActivity(intent)
         }
     }

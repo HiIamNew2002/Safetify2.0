@@ -1,6 +1,8 @@
 package com.example.safetify203v
 
+
 import android.os.Bundle
+import android.Manifest
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -12,6 +14,7 @@ import com.example.safetify203v.databinding.ActivitySecondBinding
 import com.google.android.material.navigation.NavigationView
 
 class SecondActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener{
+
 
     private lateinit var fragmentManager: FragmentManager
     private lateinit var binding: ActivitySecondBinding
@@ -46,6 +49,8 @@ class SecondActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
 
         fragmentManager = supportFragmentManager
         openFragment(HomeFragment())
+
+
 
 
     }
