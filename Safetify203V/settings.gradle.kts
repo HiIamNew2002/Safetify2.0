@@ -10,8 +10,11 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        jcenter()
     }
 }
+
+
 
 rootProject.name = "Safetify2.0(3V)"
 include(":app")

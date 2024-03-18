@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bgverification">
+
+
+    <TextView
+        android:id="@+id/LastStep"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="140dp"
+        android:fontFamily="@font/poppinssemibold"
+        android:text="Last Step"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/DescLastStep"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/LastStep"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/poppinsregular"
+        android:gravity="center"
+        android:text="Upload your Identification Card/Passport &#10;with your selfie"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="178dp" />
+
+
+    <TextView
+        android:id="@+id/IdentificationCardPass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/DescLastStep"
+        android:layout_marginTop="80dp"
+        android:fontFamily="@font/poppinsbold"
+        android:gravity="center"
+        android:text="Identification Card/Passport"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.145"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/DescLastStep" />
+
+    <ImageButton
+        android:id="@+id/AddPhoto1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/IdentificationCardPass"
+        android:background="@drawable/addphoto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.118"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Selfie" />
+
+    <TextView
+        android:id="@+id/Selfie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/AddPhoto1"
+        android:layout_marginTop="44dp"
+        android:fontFamily="@font/poppinsbold"
+        android:gravity="center"
+        android:text="Selfie with IC or Passport"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.125"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AddPhoto2" />
+
+    <ImageButton
+        android:id="@+id/AddPhoto2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Selfie"
+        android:background="@drawable/addphoto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.118"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/IdentificationCardPass" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/myButton"
+        android:layout_width="335dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/AddPhoto2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:width="150dp"
+        android:height="40dp"
+        android:background="@drawable/buttongreen"
+        android:fontFamily="@font/poppinsbold"
+        android:text="Submit"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AddPhoto1"
+        app:layout_constraintVertical_bias="0.013" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

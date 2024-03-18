@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bgverification">
+
+
+    <TextView
+        android:id="@+id/WeAreSorry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="208dp"
+        android:fontFamily="@font/poppinssemibold"
+        android:text="We are Sorry"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/rejectedIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/WeAreSorry"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:src="@drawable/rejected"
+        app:layout_constraintTop_toBottomOf="@+id/WeAreSorry"
+        tools:layout_editor_absoluteX="105dp" />
+
+    <TextView
+        android:id="@+id/YourSubmissionMay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rejectedIcon"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:fontFamily="@font/poppinsmedium"
+        android:gravity="center"
+        android:text="Your submission may contain unclear &#10; images, please submit another images for &#10; us to process."
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintTop_toBottomOf="@+id/rejectedIcon"
+        tools:layout_editor_absoluteX="43dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

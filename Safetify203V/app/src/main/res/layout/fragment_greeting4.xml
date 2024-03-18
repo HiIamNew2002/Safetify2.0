@@ -6,100 +6,103 @@
     android:id="@+id/frameLayout6"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/main_gradient_color"
     tools:context="com.example.safetify203v.greetings.Greeting4Fragment">
 
     <ImageView
-        android:id="@+id/ivLeft"
-        android:layout_width="252dp"
-        android:layout_height="400dp"
-        android:src="@drawable/greetings_trapezium"
+        android:id="@+id/bgtrapeziumpurple"
+        android:layout_width="664dp"
+        android:layout_height="650dp"
+        android:layout_marginTop="-80dp"
+        android:layout_marginLeft="10dp"
+        android:src="@drawable/trapeziumpurple"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.787" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
-        android:id="@+id/ivRight"
-        android:layout_width="252dp"
-        android:layout_height="400dp"
-        android:scaleX="-1"
-        android:src="@drawable/greetings_trapezium"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="105dp"
+        android:layout_marginEnd="149dp"
+        android:layout_marginBottom="65dp"
+        android:src="@drawable/imagegr3"
+        app:layout_constraintBottom_toBottomOf="@+id/bgtrapeziumpurple"
+        app:layout_constraintEnd_toEndOf="@+id/bgtrapeziumpurple"
+        app:layout_constraintHorizontal_bias="0.227"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.787" />
+        app:layout_constraintTop_toTopOf="@+id/bgtrapeziumpurple"
+        app:layout_constraintVertical_bias="0.43" />
 
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="458dp"
-        android:layout_height="229dp"
-        android:src="@drawable/greetings_rectangle"
+    <TextView
+        android:id="@+id/gr2_LegalProcedure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/poppinssemibold"
+        android:text="Prevention"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bgtrapeziumpurple" />
+
+    <TextView
+        android:id="@+id/gr2_desc"
+        android:layout_width="400dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="13dp"
+        android:fontFamily="@font/poppinsregular"
+        android:text="Created proactive features with the goal &#10; of helping you in avoiding &#10; potential dangers"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.996" />
+        app:layout_constraintTop_toBottomOf="@+id/gr2_LegalProcedure"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/ivNext"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:rotation="180"
-        android:scaleX="-1"
-        android:src="@drawable/greetings_next"
+        android:layout_width="26dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/arrowright"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.63"
+        app:layout_constraintHorizontal_bias="0.553"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.896" />
+        app:layout_constraintTop_toTopOf="@+id/gr2_desc"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/ivPrevious"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
+        android:layout_width="26dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:rotation="180"
-        android:src="@drawable/greetings_next"
+        android:src="@drawable/arrowright"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.37"
+        app:layout_constraintHorizontal_bias="0.446"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.896" />
+        app:layout_constraintTop_toTopOf="@+id/gr2_desc"
+        app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
-        android:id="@+id/tvMsg"
+    <ImageView
+        android:id="@+id/ProgressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/main_font_bold"
-        android:text="Prevention"
-        android:textColor="@color/black"
-        android:textSize="34sp"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/progress3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.716" />
-
-    <TextView
-        android:id="@+id/tvMsg2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:width="370dp"
-        android:fontFamily="@font/main_font"
-        android:text="Created proactive features with the goal of helping you in avoiding potential dangers"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.609"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.802" />
+        app:layout_constraintTop_toBottomOf="@+id/gr2_desc"
+        app:layout_constraintVertical_bias="0.000" />
 </androidx.constraintlayout.widget.ConstraintLayout>
