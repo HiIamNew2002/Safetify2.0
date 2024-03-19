@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
+import com.example.safetify203v.LoginActivity
 import com.example.safetify203v.R
 import com.example.safetify203v.SignUpActivity
 import com.example.safetify203v.databinding.FragmentGreeting6Binding
@@ -44,7 +45,7 @@ class Greeting6Fragment : Fragment() {
         btn.setOnClickListener {
 
 
-            val intent = Intent(requireContext(), SignUpActivity::class.java)
+            val intent = Intent(requireContext(), LoginActivity::class.java)
             startActivity(intent)
         }
     }

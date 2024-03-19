@@ -326,7 +326,7 @@
             android:text="Submit"
             android:textAllCaps="false"
             android:textSize="15sp"
-            android:layout_marginBottom="80dp"
+            android:layout_marginBottom="110dp"
             android:layout_marginTop="40dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

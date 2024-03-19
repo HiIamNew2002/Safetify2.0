@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
    xmlns:app="http://schemas.android.com/apk/res-auto"
    xmlns:tools="http://schemas.android.com/tools"
    android:id="@+id/frameLayout8"
@@ -225,7 +225,7 @@
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintTop_toBottomOf="@+id/TextConfirmPassword" />
 
-   <TextView
+   <!--<TextView
        android:id="@+id/passRequirement"
        android:layout_width="380dp"
        android:layout_height="wrap_content"
@@ -239,7 +239,7 @@
        app:layout_constraintHorizontal_bias="0.677"
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintTop_toBottomOf="@+id/signupConfirm"
-       app:layout_constraintVertical_bias="0.0" />
+       app:layout_constraintVertical_bias="0.0" />-->
 
    <androidx.appcompat.widget.AppCompatButton
        android:id="@+id/signupButton"
@@ -257,8 +257,8 @@
        app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintHorizontal_bias="0.491"
        app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toBottomOf="@id/passRequirement"
-       app:layout_constraintVertical_bias="0.93" />
+       app:layout_constraintTop_toBottomOf="@id/signupConfirm"
+       app:layout_constraintVertical_bias="0.2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

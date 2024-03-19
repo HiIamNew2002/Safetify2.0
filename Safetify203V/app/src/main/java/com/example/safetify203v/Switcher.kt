@@ -13,7 +13,7 @@ import androidx.core.content.ContentProviderCompat.requireContext
 class Switcher : AppCompatActivity() {
     val images = arrayOf(R.drawable.ambulance, R.drawable.police, R.drawable.bang, R.drawable.bell)
     var counter = 0
-    lateinit var Alarmchc: ImageSwitcher // Initialize it as lateinit
+    private lateinit var Alarmchc: ImageSwitcher // Initialize it as lateinit
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
