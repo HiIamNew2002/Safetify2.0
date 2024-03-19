@@ -40,7 +40,7 @@ class SecondActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
                 R.id.bottom_alarm -> openFragment(AlarmFragment())
                 //R.id.bottom_home -> openFragment(HomeFragment())
                 R.id.bottom_guides -> openFragment(GuidesFragment())
-                R.id.bottom_routes -> openFragment(RoutesFragment())
+                R.id.bottom_report -> openFragment(ReportFragment())
             }
             true
         }
@@ -57,7 +57,7 @@ class SecondActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.nav_contacts -> openFragment(ContactsFragment())
-            R.id.nav_report -> openFragment(ReportFragment())
+            //R.id.nav_report -> openFragment(ReportFragment())
             R.id.nav_settings -> openFragment(SettingsFragment())
         }
         binding.drawerLayout.closeDrawer(GravityCompat.START)

@@ -26,8 +26,11 @@ class CallFragment : Fragment() {
 
         // Assuming you have a Button with the ID btnRecord in your fragment_call.xml layout
         binding.btnRecord.setOnClickListener {
-            // Replace CallFragment with RecordingFragment
             replaceFragment(RecordingFragment())
+        }
+
+        binding.btnVideo.setOnClickListener {
+            replaceFragment(VideoCallFragment())
         }
     }
 

@@ -1,16 +1,344 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".SettingsFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Settings"
-        android:textSize="36sp"
-        android:gravity="center"
-        android:textColor="@color/red"/>
+    <!-- Back Arrow Image -->
 
-</FrameLayout>
+
+    <!-- Title Text -->
+
+    <!-- Background Image -->
+    <TextView
+
+        android:id="@+id/setting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/interbold"
+        android:text="Settings"
+        android:textColor="@color/white"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.472"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/bgsetting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/bgsetting"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/setting" />
+
+    <!-- Scroll View -->
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bgsetting">
+
+
+        <!-- Content Layout Inside ScrollView -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Option Text -->
+            <!--OPTION-->
+            <TextView
+                android:id="@+id/optiontext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Option"
+                android:layout_marginTop="50dp"
+                android:fontFamily="@font/interbold"
+                android:textSize="20sp"
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:id="@+id/groupnotification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:id="@+id/notificationtext"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="Notification"
+                    android:fontFamily="@font/interregular"
+                    android:textSize="16sp" />
+
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/toogleoffnotification2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppinssemibold"
+                    android:layout_marginLeft="100dp"
+                    android:thumb="@drawable/thumb"
+                    app:track="@drawable/track"/>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/grouptheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:id="@+id/themetext"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="Theme"
+                    android:fontFamily="@font/interregular"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/lighttext"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="Light"
+                    android:textStyle="italic"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="55dp" />
+
+                <ImageView
+                    android:id="@+id/opentheme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/rightarrowicon"
+                    android:layout_marginLeft="10dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="Location Tracking"
+                    android:fontFamily="@font/interregular"
+                    android:textSize="16sp" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/toogleoffnotification"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppinssemibold"
+                    android:layout_marginLeft="100dp"
+                    android:thumb="@drawable/thumb"
+                    app:track="@drawable/track"/>
+                <!--
+                                <androidx.appcompat.widget.AppCompatButton
+                                    android:id="@+id/toogleofflocation"
+                                    android:layout_width="80dp"
+                                    android:layout_height="45dp"
+                                    android:background="@drawable/toogleoff"
+                                    android:fontFamily="@font/poppinssemibold"
+                                    android:layout_marginLeft="85dp"
+                                    />
+                -->
+                <!-- THIS IS TOOGLE ON BUTTON
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/toogleontlocation"
+                    android:layout_width="63dp"
+                    android:layout_height="28dp"
+                    android:background="@drawable/toogleon"
+                    android:fontFamily="@font/poppinssemibold"
+                    android:layout_marginLeft="85dp" /> -->
+
+            </LinearLayout>
+
+            <!--ACCOUNT-->
+            <TextView
+                android:id="@+id/groupaccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/interbold"
+                android:text="Account"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:id="@+id/personalinfogroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:id="@+id/personalinfotext"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="Personal Information"
+                    android:fontFamily="@font/interregular"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/openpersonalinfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/rightarrowicon"
+                    android:layout_marginLeft="135dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/countrygroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center">
+
+                <TextView
+
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="Country"
+                    android:fontFamily="@font/interregular"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="Malaysia"
+                    android:textStyle="italic"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="30dp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/rightarrowicon"
+                    android:layout_marginLeft="35dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="Language"
+                    android:fontFamily="@font/interregular"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="English"
+                    android:textStyle="italic"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="55dp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/rightarrowicon"
+                    android:layout_marginLeft="10dp" />
+
+            </LinearLayout>
+
+            <!--GENERAL-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="General"
+                android:fontFamily="@font/interbold"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_marginTop="30dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="Accesibillity"
+                    android:fontFamily="@font/interregular"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/rightarrowicon"
+                    android:layout_marginLeft="130dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="Sound"
+                    android:fontFamily="@font/interregular"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/rightarrowicon"
+                    android:layout_marginLeft="130dp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,6 +4,7 @@ import android.content.Intent
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Patterns
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -32,8 +33,13 @@ class LoginActivity : AppCompatActivity() {
 
                 firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener{
                     if(it.isSuccessful){
-                        val intent = Intent(this, SecondActivity::class.java)
-                        startActivity(intent)
+                        val user = firebaseAuth.currentUser
+                        if (user != null && user.isEmailVerified) {
+                            val intent = Intent(this, SecondActivity::class.java)
+                            startActivity(intent)
+                        } else {
+                            Toast.makeText(this, "Please verify your email", Toast.LENGTH_SHORT).show()
+                        }
                     }else{
                         Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
                     }
@@ -46,7 +52,7 @@ class LoginActivity : AppCompatActivity() {
 
         binding.forgotPassword.setOnClickListener{
             val builder = AlertDialog.Builder(this)
-            val view = layoutInflater.inflate(R.layout.dialog_forgot, null)
+            val view = layoutInflater.inflate(R.layout.forgotpass, null)
             val userEmail = view.findViewById<EditText>(R.id.editBox)
 
             builder.setView(view)
@@ -55,10 +61,13 @@ class LoginActivity : AppCompatActivity() {
             view.findViewById<Button>(R.id.btnReset).setOnClickListener{
                 compareEmail(userEmail)
                 dialog.dismiss()
+
             }
+
             view.findViewById<Button>(R.id.btnCancel).setOnClickListener{
                 dialog.dismiss()
             }
+
             if (dialog.window != null){
                 dialog.window!!.setBackgroundDrawable(ColorDrawable(0))
             }

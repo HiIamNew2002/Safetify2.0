@@ -7,7 +7,6 @@ import androidx.navigation.fragment.NavHostFragment
 import com.example.safetify203v.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-
     private lateinit var navController: NavController
     private lateinit var binding: ActivityMainBinding
 
