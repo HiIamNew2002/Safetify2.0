@@ -2,7 +2,6 @@ package com.example.safetify203v
 
 
 import android.os.Bundle
-import android.Manifest
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -39,7 +38,7 @@ class SecondActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
             when(item.itemId){
                 R.id.bottom_call -> openFragment(CallFragment())
                 R.id.bottom_alarm -> openFragment(AlarmFragment())
-                R.id.bottom_home -> openFragment(HomeFragment())
+                //R.id.bottom_home -> openFragment(HomeFragment())
                 R.id.bottom_guides -> openFragment(GuidesFragment())
                 R.id.bottom_report -> openFragment(ReportFragment())
             }
@@ -48,7 +47,7 @@ class SecondActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
 
 
         fragmentManager = supportFragmentManager
-        openFragment(HomeFragment())
+        openFragment(RoutesFragment())
 
 
 

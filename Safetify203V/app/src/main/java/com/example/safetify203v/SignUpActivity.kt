@@ -30,6 +30,15 @@ class SignUpActivity : AppCompatActivity() {
             val password = binding.signupPassword.text.toString()
             val confirmPassword = binding.signupConfirm.text.toString()
 
+            if(email.isNotEmpty() && password.isNotEmpty() && confirmPassword.isNotEmpty()){
+                if(password == confirmPassword){
+                    firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener{
+                        if(it.isSuccessful){
+                            val intent  = Intent(this, LoginActivity::class.java)
+                            startActivity(intent)
+                        }else{
+                            Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
+                        }
 
             if (email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
                 // Create the AlertDialog
@@ -101,6 +110,7 @@ class SignUpActivity : AppCompatActivity() {
                 }
             }
         }
+
         binding.loginRedirectText.setOnClickListener{
             val loginIntent = Intent(this, LoginActivity::class.java)
             startActivity(loginIntent)
