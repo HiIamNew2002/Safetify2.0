@@ -101,6 +101,7 @@
         android:fontFamily="@font/poppinsregular"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TextPasword" />

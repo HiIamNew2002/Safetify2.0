@@ -77,7 +77,7 @@
        android:id="@+id/WelcomeOnboard"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:layout_marginTop="259dp"
+       android:layout_marginTop="190dp"
        android:fontFamily="@font/poppinssemibold"
        android:text="Welcome Onboard!"
        android:textColor="@color/black"
@@ -225,24 +225,6 @@
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintTop_toBottomOf="@+id/TextConfirmPassword" />
 
-<!--
-   <TextView
-       android:id="@+id/passDoesntMatch"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:fontFamily="@font/intermedium"
-       android:text="Password doesn't match"
-       android:textColor="@color/darkred"
-       android:textSize="16sp"
-       android:textStyle="italic"
-       app:layout_constraintBottom_toTopOf="@+id/signupButton"
-       app:layout_constraintEnd_toEndOf="parent"
-       app:layout_constraintHorizontal_bias="0.094"
-       app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toBottomOf="@+id/signupConfirm"
-       app:layout_constraintVertical_bias="0.0" />
--->
-
    <TextView
        android:id="@+id/passRequirement"
        android:layout_width="380dp"
@@ -275,7 +257,7 @@
        app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintHorizontal_bias="0.491"
        app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toTopOf="@+id/gr6_BGgr5"
+       app:layout_constraintTop_toBottomOf="@id/passRequirement"
        app:layout_constraintVertical_bias="0.93" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
