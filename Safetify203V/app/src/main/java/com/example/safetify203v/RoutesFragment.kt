@@ -79,6 +79,9 @@ class RoutesFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMapLongClickL
     // Define a member variable to store the marker for destination
     private var destinationMarker: Marker? = null
 
+    // counter such that only zoom once (when first enter app)
+    private var zoomCount = 0
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -123,7 +126,7 @@ class RoutesFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMapLongClickL
 
                 // Upon Clicking Safest Route
                 view.findViewById<Button>(R.id.btnSafest).setOnClickListener{
-
+                    fetchSafeDirections(latLng)
                     dialog.dismiss()
                 }
 
@@ -165,7 +168,10 @@ class RoutesFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMapLongClickL
                         val currentLatLng = LatLng(location.latitude, location.longitude)
 
                         // Move the camera to the user's current location
-                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 16f))
+                        if (zoomCount == 0){
+                            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 16f))
+                        }
+                        zoomCount++
                     }
                 }
         } else {
@@ -369,7 +375,7 @@ class RoutesFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMapLongClickL
     }
 
     private fun fetchDirections(destination: LatLng, isBalanced: Boolean) {
-         // Implement Retrofit service to fetch directions
+        // Implement Retrofit service to fetch directions
         // Check if location permission is granted
         if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             // Get the last known location from Fused Location Provider
@@ -531,6 +537,152 @@ class RoutesFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMapLongClickL
         return numerator / denominator
     }
 
+
+
+
+    private fun fetchSafeDirections(destination: LatLng){
+        // Check if location permission is granted
+        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            // Get the last known location from Fused Location Provider
+            fusedLocationClient.lastLocation
+                .addOnSuccessListener { location ->
+                    location?.let {
+                        // Create a LatLng object from the last known location
+                        val origin = LatLng(location.latitude, location.longitude)
+                        val apiKey = getString(R.string.google_map_api_key)
+
+                        val retrofit = Retrofit.Builder()
+                            .baseUrl("https://maps.googleapis.com/maps/api/")
+                            .addConverterFactory(GsonConverterFactory.create())
+                            .build()
+
+
+                        // creating connection to firebase (this can store most data but images)
+                        val db = Firebase.firestore
+
+                        val collectionRef = db.collection("subang_area_predictions")
+                        collectionRef.addSnapshotListener { value, e ->
+                            if (e != null) {
+                                Log.d(TAG, "Listen failed.", e)
+                                return@addSnapshotListener
+                            }
+
+                            // find midpoint between origin and destination
+                            val point1 = Point(origin.latitude,origin.longitude)
+                            val point2 = Point(destination.latitude, destination.longitude)
+                            var width = 30.0 // in meters
+                            width /= 111000 // convert to degrees
+
+
+                            var maxPred = -10.0
+                            var maxCoordinate = ""
+                            var secondPred = -11.0
+                            var secondCoordinate = ""
+                            var thirdPred = -12.0
+                            var thirdCoordinate = ""
+                            var forthPred = -13.0
+                            var forthCoordinate = ""
+                            var fifthPred = -14.0
+                            var fifthCoordinate = ""
+
+                            // Obtain the top two scoring points within area
+                            for (doc in value!!){
+                                var latitude = doc.getString("latitude") ?: ""
+                                var longitude = doc.getString("longitude") ?: ""
+                                var prediction = doc.getDouble("prediction")
+
+                                // If the point is within area, perform find max and find second max
+                                if (distancePointToLine(Point(latitude.toDouble(),longitude.toDouble()),point1, point2) < width && prediction!=null){
+                                    if (prediction > maxPred) {
+                                        //shift previous max to second
+                                        fifthPred = forthPred
+                                        fifthCoordinate = forthCoordinate
+                                        forthPred = thirdPred
+                                        forthCoordinate = thirdCoordinate
+                                        thirdPred = secondPred
+                                        thirdCoordinate = secondCoordinate
+                                        secondPred = maxPred
+                                        secondCoordinate = maxCoordinate
+                                        maxPred = prediction
+                                        maxCoordinate = latitude + "," + longitude
+
+                                    } else if (prediction > secondPred){
+                                        fifthPred = forthPred
+                                        fifthCoordinate = forthCoordinate
+                                        forthPred = thirdPred
+                                        forthCoordinate = thirdCoordinate
+                                        thirdPred = secondPred
+                                        thirdCoordinate = secondCoordinate
+                                        secondPred = prediction
+                                        secondCoordinate = latitude+","+longitude
+                                    } else if (prediction > thirdPred){
+                                        fifthPred = forthPred
+                                        fifthCoordinate = forthCoordinate
+                                        forthPred = thirdPred
+                                        forthCoordinate = thirdCoordinate
+                                        thirdPred = prediction
+                                        thirdCoordinate = latitude+","+longitude
+                                    } else if (prediction > thirdPred){
+                                        fifthPred = forthPred
+                                        fifthCoordinate = forthCoordinate
+                                        forthPred = prediction
+                                        forthCoordinate = latitude+","+longitude
+                                    } else if (prediction > fifthPred){
+                                        fifthPred = prediction
+                                        fifthCoordinate = latitude+","+longitude
+                                    }
+                                }
+                            }
+
+
+                            val waypointsString = "optimize:true|"+maxCoordinate+"|"+secondCoordinate+"|"+thirdCoordinate+"|"+forthCoordinate+"|"+fifthCoordinate
+                            val service = retrofit.create(SafeService::class.java)
+                            val call = service.getDirections(
+                                origin = "${origin.latitude},${origin.longitude}",
+                                destination = "${destination.latitude},${destination.longitude}",
+                                waypoints = waypointsString, // Comma-separated list of waypoints
+                                mode = "driving", // Specify the travel mode (e.g., driving, walking, etc.)
+                                apiKey = apiKey
+                            )
+                            call.enqueue(object : Callback<DirectionsResponse> {
+                                override fun onResponse(
+                                    call: Call<DirectionsResponse>,
+                                    response: Response<DirectionsResponse>
+                                ) {
+                                    if (response.isSuccessful) {
+                                        val directionsResponse = response.body()
+                                        Log.d(
+                                            TAG,
+                                            " fetchDirections: successful response: $directionsResponse"
+                                        )
+                                        directionsResponse?.let { processDirections(it) }
+                                    } else {
+                                        // Handle unsuccessful response
+                                        val errorBody = response.errorBody()?.string()
+                                        Log.e(
+                                            TAG,
+                                            "Error response: ${response.code()}, $errorBody"
+                                        )
+                                        // Handle error based on the HTTP status code and error message
+                                    }
+                                }
+
+                                override fun onFailure(
+                                    call: Call<DirectionsResponse>,
+                                    t: Throwable
+                                ) {
+                                    Log.d(TAG, "fetchDirections: call failed")
+                                }
+                            })
+                        }
+                    }
+                }
+        } else {
+            // If location permission is not granted, request it
+            requestLocationPermission()
+        }
+    }
+
     private fun processDirections(directionsResponse: DirectionsResponse) {Log.d(TAG, "    Successful call to processDirections")
         val points = directionsResponse.routes.firstOrNull()?.overview_polyline?.points
         points?.let { decodedPoints ->
@@ -627,60 +779,22 @@ class RoutesFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMapLongClickL
             @Query("key") apiKey: String
         ): Call<DirectionsResponse>
     }
+
+    private interface SafeService {
+        @GET("directions/json")
+        fun getDirections(
+            @Query("origin") origin: String,
+            @Query("destination") destination: String,
+            @Query("waypoints") waypoints: String, // Include waypoints parameter
+            @Query("mode") mode: String,
+            @Query("key") apiKey: String
+        ): Call<DirectionsResponse>
+    }
 }
 data class Point(val lat: Double, val lon: Double)
 // Performing Safest Route option
 
 // Define a class for the Vertex
 data class Vertex<T>(val data: T)
+data class VertexWithWeight<T>(val vertex: Vertex<T>, val weight: Double)
 data class Edge<T>(val source: Vertex<T>, val destination: Vertex<T>, val weight: Double)
-
-class Graph<T> {
-    val adjacencyList: MutableMap<Vertex<T>, MutableList<Edge<T>>> = mutableMapOf()
-
-    fun addEdge(source: Vertex<T>, destination: Vertex<T>, weight: Double) {
-        val edge = Edge(source, destination, weight)
-        adjacencyList.computeIfAbsent(source) { mutableListOf() }.add(edge)
-    }
-
-    fun getEdges(vertex: Vertex<T>): List<Edge<T>>? = adjacencyList[vertex]
-}
-
-fun <T> dijkstra(graph: Graph<T>, start: Vertex<T>, end: Vertex<T>): List<Vertex<T>> {
-    val distances = mutableMapOf<Vertex<T>, Double>().withDefault { Double.MAX_VALUE }
-    distances[start] = 0.0
-
-    val priorityQueue = PriorityQueue<Pair<Vertex<T>, Double>>(compareBy { it.second })
-    priorityQueue.add(Pair(start, 0.0))
-
-    val visited = mutableSetOf<Vertex<T>>()
-    val prev = mutableMapOf<Vertex<T>, Vertex<T>?>()
-
-    while (priorityQueue.isNotEmpty()) {
-        val (currentVertex, _) = priorityQueue.poll()
-        if (currentVertex == end) break
-        if (visited.contains(currentVertex)) continue
-        visited.add(currentVertex)
-
-        graph.getEdges(currentVertex)?.forEach { edge ->
-            if (!visited.contains(edge.destination)) {
-                val newDist = distances.getValue(currentVertex) + edge.weight
-                if (newDist < distances.getValue(edge.destination)) {
-                    distances[edge.destination] = newDist
-                    prev[edge.destination] = currentVertex
-                    priorityQueue.add(Pair(edge.destination, newDist))
-                }
-            }
-        }
-    }
-
-    // Reconstruct the path from 'start' to 'end'
-    val path = mutableListOf<Vertex<T>>()
-    var at: Vertex<T>? = end
-    while (at != null) {
-        path.add(at)
-        at = prev[at]
-    }
-    path.reverse()
-    return path
-}
