@@ -63,17 +63,18 @@
         android:id="@+id/myButton"
         android:layout_width="300dp"
         android:layout_height="42dp"
-        android:layout_marginBottom="468dp"
+        android:layout_marginBottom="364dp"
         android:background="@color/main_purple"
         android:fontFamily="@font/poppinssemibold"
         android:text="Next"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintHorizontal_bias="0.522"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText"
-        app:layout_constraintVertical_bias="0.854" />
+
+        app:layout_constraintTop_toBottomOf="@+id/emailedit"
+        app:layout_constraintVertical_bias="1.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
