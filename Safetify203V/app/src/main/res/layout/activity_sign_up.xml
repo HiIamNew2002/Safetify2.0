@@ -77,7 +77,7 @@
        android:id="@+id/WelcomeOnboard"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:layout_marginTop="190dp"
+       android:layout_marginTop="247dp"
        android:fontFamily="@font/poppinssemibold"
        android:text="Welcome Onboard!"
        android:textColor="@color/black"

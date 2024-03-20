@@ -1,6 +1,7 @@
 package com.example.safetify203v
 
 import android.Manifest
+import android.content.ContentValues
 import android.content.pm.PackageManager
 import android.graphics.Color
 import android.os.Build
@@ -14,6 +15,8 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.example.safetify203v.databinding.FragmentCallBinding
+import com.example.safetify203v.databinding.FragmentRoutesBinding
 import com.google.android.gms.common.api.Status
 import com.google.android.gms.location.Geofence
 import com.google.android.gms.location.GeofencingClient
@@ -29,6 +32,10 @@ import com.google.android.libraries.places.api.Places
 import com.google.android.libraries.places.api.model.Place
 import com.google.android.libraries.places.widget.AutocompleteSupportFragment
 import com.google.android.libraries.places.widget.listener.PlaceSelectionListener
+import com.google.firebase.firestore.Query
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import java.text.SimpleDateFormat
 
 class RoutesFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMapLongClickListener {
 
@@ -38,7 +45,7 @@ class RoutesFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMapLongClickL
     private lateinit var geofencingClient: GeofencingClient
     private lateinit var geofenceHelper: GeofenceHelper
 
-    private val GEOFENCE_RADIUS = 200f
+    private val GEOFENCE_RADIUS = 20f
     private val GEOFENCE_ID = "SOME_GEOFENCE_ID"
 
     private val FINE_LOCATION_ACCESS_REQUEST_CODE = 10001
@@ -46,12 +53,15 @@ class RoutesFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMapLongClickL
 
     private lateinit var autocompleteFragment: AutocompleteSupportFragment
 
+    private var _binding: FragmentRoutesBinding? = null
+    private val binding get() = _binding!!
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-        val view = inflater.inflate(R.layout.fragment_routes, container, false)
+        _binding = FragmentRoutesBinding.inflate(inflater, container, false)
 
         // Initialize Places
         Places.initialize(requireContext(), getString(R.string.google_map_api_key))
@@ -81,7 +91,7 @@ class RoutesFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMapLongClickL
         geofenceHelper = GeofenceHelper(requireContext())
 
         // Inflate the layout for this fragment
-        return view
+        return binding.root
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -95,6 +105,13 @@ class RoutesFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMapLongClickL
 
         mMap.setOnMapLongClickListener(this)
 
+
+        binding.btnShow.setOnClickListener {
+            fetchDataFromFirestore()
+        }
+
+
+
         // Find the location button view
         val locationButton = (requireView().findViewById<View>(Integer.parseInt("1")).parent as View).findViewById<View>(Integer.parseInt("2"))
         val rlp = locationButton.layoutParams as RelativeLayout.LayoutParams
@@ -107,6 +124,31 @@ class RoutesFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMapLongClickL
 
     }
 
+    private fun fetchDataFromFirestore() {
+        val db = Firebase.firestore
+        val query =
+            db.collection("subang_area_predictions").orderBy("prediction", Query.Direction.ASCENDING).limit(3)
+
+        query.addSnapshotListener { snapshots, e ->
+            if (e != null) {
+                Log.w(TAG, "listen:error", e)
+                return@addSnapshotListener
+            }
+
+            for (doc in snapshots!!) {
+                val prediction = doc.getDouble("prediction")
+                val latitude = doc["latitude"]
+                val longitude = doc["longitude"]
+
+                if (latitude is String && longitude is String) {
+                    val latLng = LatLng(latitude.toDouble(), longitude.toDouble())
+                    createGeofence(latLng)
+                } else {
+                    Log.e(TAG, "Latitude or longitude is null")
+                }
+            }
+        }
+    }
     private fun enableUserLocation() {
         if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             mMap.isMyLocationEnabled = true
@@ -180,6 +222,12 @@ class RoutesFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMapLongClickL
 
     private fun handleMapLongClick(latLng: LatLng) {
         mMap.clear()
+        addMarker(latLng)
+        addCircle(latLng, GEOFENCE_RADIUS)
+        addGeofence(latLng, GEOFENCE_RADIUS)
+    }
+
+    private fun createGeofence(latLng: LatLng) {
         addMarker(latLng)
         addCircle(latLng, GEOFENCE_RADIUS)
         addGeofence(latLng, GEOFENCE_RADIUS)
