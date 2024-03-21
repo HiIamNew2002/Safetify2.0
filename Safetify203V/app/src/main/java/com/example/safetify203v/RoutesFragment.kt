@@ -42,6 +42,8 @@ import com.google.android.libraries.places.api.Places
 import com.google.android.libraries.places.api.model.Place
 import com.google.android.libraries.places.widget.AutocompleteSupportFragment
 import com.google.android.libraries.places.widget.listener.PlaceSelectionListener
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -50,6 +52,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 import java.util.PriorityQueue
+import kotlin.math.*
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -118,7 +121,7 @@ class RoutesFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMapLongClickL
 
                 // Upon Clicking Balanced Route
                 view.findViewById<Button>(R.id.btnBalanced).setOnClickListener{
-
+                    showBalancedDirections(latLng)
                     dialog.dismiss()
                 }
 
@@ -379,13 +382,20 @@ class RoutesFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMapLongClickL
     }
 
 
-    // Start building safe routes
+    // -------------------------- Start building safe routes --------------------------------------------
 
     // Method to fetch and display directions
     private fun showDirectionsToDestination(destination: LatLng) {
         if (hasLocationPermission()) {
-            Log.d(TAG, "Ran showDirectionsToDestination")
-            fetchDirections(destination)
+            fetchDirections(destination, false)
+        } else {
+            requestLocationPermission()
+        }
+    }
+
+    private fun showBalancedDirections(destination: LatLng) {
+        if (hasLocationPermission()) {
+            fetchDirections(destination, true)
         } else {
             requestLocationPermission()
         }
@@ -406,7 +416,7 @@ class RoutesFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMapLongClickL
         )
     }
 
-    private fun fetchDirections(destination: LatLng) {
+    private fun fetchDirections(destination: LatLng, isBalanced: Boolean) {
          // Implement Retrofit service to fetch directions
         // Check if location permission is granted
         if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
@@ -423,39 +433,150 @@ class RoutesFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMapLongClickL
                             .addConverterFactory(GsonConverterFactory.create())
                             .build()
 
-                        val service = retrofit.create(DirectionsService::class.java)
-
-                        val call = service.getDirections(
-                            origin = "${origin.latitude},${origin.longitude}",
-                            destination = "${destination.latitude},${destination.longitude}",
-                            mode = "walking",
-                            apiKey = apiKey
-                        )
-
-                        call.enqueue(object : Callback<DirectionsResponse> {
-                            override fun onResponse(call: Call<DirectionsResponse>, response: Response<DirectionsResponse>) {
-                                if (response.isSuccessful) {
-                                    val directionsResponse = response.body()
-                                    Log.d(TAG, " fetchDirections: successful response: $directionsResponse")
-                                    directionsResponse?.let { processDirections(it) }
-                                } else {
-                                    // Handle unsuccessful response
-                                    val errorBody = response.errorBody()?.string()
-                                    Log.e(TAG, "Error response: ${response.code()}, $errorBody")
-                                    // Handle error based on the HTTP status code and error message
+                        if (!isBalanced){
+                            val service = retrofit.create(DirectionsService::class.java)
+                            val call = service.getDirections(
+                                origin = "${origin.latitude},${origin.longitude}",
+                                destination = "${destination.latitude},${destination.longitude}",
+                                mode = "walking",
+                                apiKey = apiKey
+                            )
+                            call.enqueue(object : Callback<DirectionsResponse> {
+                                override fun onResponse(call: Call<DirectionsResponse>, response: Response<DirectionsResponse>) {
+                                    if (response.isSuccessful) {
+                                        val directionsResponse = response.body()
+                                        Log.d(TAG, " fetchDirections: successful response: $directionsResponse")
+                                        directionsResponse?.let { processDirections(it) }
+                                    } else {
+                                        // Handle unsuccessful response
+                                        val errorBody = response.errorBody()?.string()
+                                        Log.e(TAG, "Error response: ${response.code()}, $errorBody")
+                                        // Handle error based on the HTTP status code and error message
+                                    }
                                 }
-                            }
 
-                            override fun onFailure(call: Call<DirectionsResponse>, t: Throwable) {
-                                Log.d(TAG, "fetchDirections: call failed")
+                                override fun onFailure(call: Call<DirectionsResponse>, t: Throwable) {
+                                    Log.d(TAG, "fetchDirections: call failed")
+                                }
+                            })
+                        } else {
+                            // creating connection to firebase (this can store most data but images)
+                            val db = Firebase.firestore
+
+                            val collectionRef = db.collection("subang_area_predictions")
+                            collectionRef.addSnapshotListener { value, e ->
+                                if (e != null) {
+                                    Log.d(TAG, "Listen failed.", e)
+                                    return@addSnapshotListener
+                                }
+
+                                // find midpoint between origin and destination
+                                val point1 = Point(origin.latitude,origin.longitude)
+                                val point2 = Point(destination.latitude, destination.longitude)
+                                var width = 20 // in meters
+                                width /= 111000 // convert to degrees
+
+
+                                var maxPred = -10.0
+                                var maxCoordinate = ""
+                                var secondPred = -11.0
+                                var secondCoordinate = ""
+
+                                // Obtain the top two scoring points within area
+                                for (doc in value!!){
+                                    var latitude = doc.getString("latitude") ?: ""
+                                    var longitude = doc.getString("longitude") ?: ""
+                                    var prediction = doc.getDouble("prediction")
+
+                                    // If the point is within area, perform find max and find second max
+                                    if (distancePointToLine(Point(latitude.toDouble(),longitude.toDouble()),point1, point2) < width && prediction!=null){
+                                        if (prediction > maxPred) {
+                                            //shift previous max to second
+                                            secondPred = maxPred
+                                            secondCoordinate = maxCoordinate
+                                            maxPred = prediction
+                                            maxCoordinate = latitude + "," + longitude
+
+                                        } else if (prediction > secondPred){
+                                            secondPred = prediction
+                                            secondCoordinate = latitude+","+longitude
+                                        }
+                                    }
+                                }
+
+
+                                val waypointsString = "optimize:true|"+maxCoordinate+"|"+secondCoordinate
+                                val service = retrofit.create(BalancedService::class.java)
+                                val call = service.getDirections(
+                                    origin = "${origin.latitude},${origin.longitude}",
+                                    destination = "${destination.latitude},${destination.longitude}",
+                                    waypoints = waypointsString, // Comma-separated list of waypoints
+                                    mode = "driving", // Specify the travel mode (e.g., driving, walking, etc.)
+                                    apiKey = apiKey
+                                )
+                                call.enqueue(object : Callback<DirectionsResponse> {
+                                    override fun onResponse(
+                                        call: Call<DirectionsResponse>,
+                                        response: Response<DirectionsResponse>
+                                    ) {
+                                        if (response.isSuccessful) {
+                                            val directionsResponse = response.body()
+                                            Log.d(
+                                                TAG,
+                                                " fetchDirections: successful response: $directionsResponse"
+                                            )
+                                            directionsResponse?.let { processDirections(it) }
+                                        } else {
+                                            // Handle unsuccessful response
+                                            val errorBody = response.errorBody()?.string()
+                                            Log.e(
+                                                TAG,
+                                                "Error response: ${response.code()}, $errorBody"
+                                            )
+                                            // Handle error based on the HTTP status code and error message
+                                        }
+                                    }
+
+                                    override fun onFailure(
+                                        call: Call<DirectionsResponse>,
+                                        t: Throwable
+                                    ) {
+                                        Log.d(TAG, "fetchDirections: call failed")
+                                    }
+                                })
                             }
-                        })
+                        }
                     }
                 }
         } else {
             // If location permission is not granted, request it
             requestLocationPermission()
         }
+    }
+
+    // Returns distance between two points in meters
+    private fun findDistance(lat1: Double, lon1: Double, lat2: Double, lon2: Double): Double {
+        val radiusOfEarth = 6371 // Earth's radius in kilometers
+
+        val latDistance = Math.toRadians(lat2 - lat1)
+        val lonDistance = Math.toRadians(lon2 - lon1)
+        val a = sin(latDistance / 2) * sin(latDistance / 2) +
+                cos(Math.toRadians(lat1)) * cos(Math.toRadians(lat2)) *
+                sin(lonDistance / 2) * sin(lonDistance / 2)
+        val c = 2 * atan2(sqrt(a), sqrt(1 - a))
+        val distance = radiusOfEarth * c * 1000 // Convert distance to meters
+
+        return distance
+    }
+
+    fun distancePointToLine(point: Point, linePoint1: Point, linePoint2: Point): Double {
+        val dx = linePoint2.lat - linePoint1.lat
+        val dy = linePoint2.lon - linePoint1.lon
+
+        val numerator = abs(dy * point.lat - dx * point.lon + linePoint2.lat * linePoint1.lon - linePoint2.lon * linePoint1.lat)
+        val denominator = sqrt(dy * dy + dx * dx)
+
+        return numerator / denominator
     }
 
     private fun processDirections(directionsResponse: DirectionsResponse) {Log.d(TAG, "    Successful call to processDirections")
@@ -544,8 +665,18 @@ class RoutesFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMapLongClickL
             @Query("key") apiKey: String
         ): Call<DirectionsResponse>
     }
+    private interface BalancedService {
+        @GET("directions/json")
+        fun getDirections(
+            @Query("origin") origin: String,
+            @Query("destination") destination: String,
+            @Query("waypoints") waypoints: String, // Include waypoints parameter
+            @Query("mode") mode: String,
+            @Query("key") apiKey: String
+        ): Call<DirectionsResponse>
+    }
 }
-
+data class Point(val lat: Double, val lon: Double)
 // Performing Safest Route option
 
 // Define a class for the Vertex
