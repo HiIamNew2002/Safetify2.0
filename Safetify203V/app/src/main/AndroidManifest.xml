@@ -32,6 +32,7 @@
         android:theme="@style/Theme.Safetify203V"
         android:usesCleartextTraffic="true"
         android:enableOnBackInvokedCallback="true"
+        android:requestLegacyExternalStorage="true"
         tools:targetApi="31">
         <!-- <activity
             android:name=".LocationActivity"
